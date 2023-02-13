@@ -1,0 +1,15 @@
+# retry
+
+pipeline {
+ agent any 
+   options {
+   retry(3)
+   }
+   stages {
+   stage("hello_world"){
+     steps {
+     echo "hello_world"
+     }
+     }
+   }
+   }
