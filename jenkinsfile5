@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    stages {
+        stage('stage 1'){
+            when {
+                expression { choice == '1'}
+            }
+            steps {
+                echo "first stage executes"
+            }
+        }
+        stage ('stage 2'){
+            when {
+                expression { choice == '2' }
+            }
+            steps {
+                echo "second stage excuted"
+            }
+        }
+        stage ('stage 3') {
+            when {
+                expression { choice == '3' }
+            }
+            steps {
+                echo "3rd stage is excuted"
+            }
+        }
+    }
+}
