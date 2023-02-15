@@ -1,28 +1,31 @@
 pipeline {
     agent any
+    parameters {
+       choice(name: 'CHOICE', choices: ['dev', 'qa', 'prod'], description: 'Pick something')
+       }
     stages {
-        stage('stage 1'){
+        stage('dev'){
             when {
-                expression { choice == '1'}
+                expression { choice == 'dev'}
             }
             steps {
-                echo "first stage executes"
+                echo "dev stage excuted"
             }
         }
-        stage ('stage 2'){
+        stage ('Qa'){
             when {
-                expression { choice == '2' }
+                expression { choice == 'qa' }
             }
             steps {
-                echo "second stage excuted"
+                echo "qa stage excuted"
             }
         }
-        stage ('stage 3') {
+        stage ('prod') {
             when {
-                expression { choice == '3' }
+                expression { choice == 'prod' }
             }
             steps {
-                echo "3rd stage is excuted"
+                echo "prod stage is excuted"
             }
         }
     }
